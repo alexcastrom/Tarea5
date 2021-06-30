@@ -12,10 +12,6 @@ count=0
 
 arr=[]
 for num in data[0].split():
-	
-	#if (count ==23 or count==4 or count==15 or count==24):
-	#	count = count+1 
-	#	continue
 	typ, data = imap.fetch(num, '(BODY[HEADER.FIELDS (MESSAGE-ID)])')
 	datito= data[0][1].decode()
 	datito=datito.replace("Message-ID:", "")
@@ -134,9 +130,6 @@ cc=0
 for num in data[0].split():
 	cc=cc+1
 	print(cc)
-	#if (count ==23 or count==4 or count==15 or count==24):
-	#	count = count+1 
-	#	continue
 	typ, data = imap.fetch(num, '(BODY[HEADER.FIELDS (Received)])')
 	datito= data[0][1].decode()
 	datito=datito.replace("Message-ID:", "")
@@ -145,14 +138,11 @@ for num in data[0].split():
 	datito=datito.strip()
 	datito = datito.split("\nR")
 	i=len(datito)
-	#if (i==3):
-	#	continue
 	datito[i-1]=datito[i-1].replace("eceived: ", "")
 	datito[i-1]=datito[i-1].replace('\r', '').replace('\n', '')
 	print(datito[i-1])
 	arr.append(datito[i-1]+"\n")
 	count=count+1
-	#print (count)
 	if (count ==40):
 		print("logrado")
 		break
@@ -272,9 +262,6 @@ arr=[]
 typ, data = imap.search(None,'FROM', 'noreply@uber.com') ######## ULTIMO RECEIVER
 count=0
 for num in data[0].split():
-	#if (count ==23 or count==4 or count==15 or count==24):
-	#	count = count+1 
-	#	continue
 	typ, data = imap.fetch(num, '(BODY[HEADER.FIELDS (Received)])')
 	datito= data[0][1].decode()
 	datito=datito.replace("Message-ID:", "")
@@ -305,7 +292,6 @@ for num in data[0].split():
 	datito=datito.replace("Message-Id:", "")
 	datito=datito.strip()
 	datito = datito.split("\nR")
-	
 	datito[0]=datito[0].replace("Received: ", "")
 	datito[0]=datito[0].replace('\r', '').replace('\n', '')
 	print(datito[0])
@@ -368,8 +354,6 @@ for num in data[0].split():
 		print("logrado")
 		break
 
-
-
 typ, data = imap.search(None,'FROM', 'no-reply@twitch.tv')
 count=0
 for num in data[0].split():
@@ -413,9 +397,6 @@ arr=[]
 typ, data = imap.search(None,'FROM', 'noreply@uber.com')######################## FROM
 count=0
 for num in data[0].split():
-	#if (count ==23 or count==4 or count==15 or count==24):
-	#	count = count+1 
-	#	continue
 	typ, data = imap.fetch(num, '(BODY[HEADER.FIELDS (From)])')
 	datito= data[0][1].decode()
 	datito=datito.replace("Message-ID:", "")
@@ -465,7 +446,6 @@ for num in data[0].split():
 	if (count ==40):
 		print("logrado")
 		break
-
 
 imap.close()
 
@@ -525,15 +505,11 @@ arr=[]
 typ, data = imap.search(None,'FROM', 'noreply@uber.com')   ########### CORREO
 count=0
 for num in data[0].split():
-	#if (count ==23 or count==4 or count==15 or count==24):
-	#	count = count+1 
-	#	continue
 	typ, data = imap.fetch(num, '(BODY[HEADER.FIELDS (From)])')
 	datito= data[0][1].decode()
 	datito=datito.replace(">", "")
 	datito=datito.strip()
 	datito = datito.split("<")
-
 	print(datito[1])
 	arr.append(datito[1]+"\n")
 	count=count+1
@@ -541,7 +517,6 @@ for num in data[0].split():
 	if (count ==40):
 		print("logrado")
 		break
-
 
 typ, data = imap.search(None,'FROM', 'info@correo.integramedica.cl')  ########################3 CORREO
 count=0
@@ -551,7 +526,6 @@ for num in data[0].split():
 	datito=datito.replace(">", "")
 	datito=datito.strip()
 	datito = datito.split("<")
-
 	print(datito[1])
 	arr.append(datito[1]+"\n")
 	count=count+1
@@ -569,7 +543,6 @@ for num in data[0].split():
 	datito=datito.replace(">", "")
 	datito=datito.strip()
 	datito = datito.split("<")
-
 	print(datito[1])
 	arr.append(datito[1]+"\n")
 	count=count+1
@@ -595,7 +568,6 @@ for num in data[0].split():
 	datito=datito.replace(">", "")
 	datito=datito.strip()
 	datito = datito.split("<")
-
 	print(datito[1])
 	arr.append(datito[1]+"\n")
 	count=count+1
@@ -613,7 +585,6 @@ for num in data[0].split():
 	datito=datito.replace(">", "")
 	datito=datito.strip()
 	datito = datito.split("<")
-
 	print(datito[1])
 	arr.append(datito[1]+"\n")
 	count=count+1
@@ -639,9 +610,6 @@ typ, data = imap.search(None,'FROM', 'noreply@uber.com')
 count=0
 
 for num in data[0].split():
-	#if (count ==23 or count==4 or count==15 or count==24):
-	#	count = count+1 
-	#	continue
 	typ, data = imap.fetch(num, '(BODY[HEADER.FIELDS (Received)])')
 	datito= data[0][1].decode()
 	datito=datito.replace("Message-ID:", "")
@@ -651,7 +619,6 @@ for num in data[0].split():
 	datito = datito.split("\nR")
 	i=len(datito)
 	datito[i-1]=datito[i-1].replace("eceived: ", "")
-	
 	datito[i-1]=datito[i-1].replace('\r', '').replace('\n', '')
 	time=datito[i-1].split(" ")
 	ii=len(time)
@@ -811,17 +778,10 @@ imap.select('Inbox')
 
 typ, data = imap.search(None,'FROM', 'noreply@uber.com')########### PRIMER RECEIVER
 count=0
-
-
-lim=40
 cc=0
 for num in data[0].split():
 	cc=cc+1
 	print(cc)
-	#if (count ==23 or count==4 or count==15 or count==24):
-	#	lim=lim+1
-	#	count = count+1 
-	#	continue
 	typ, data = imap.fetch(num, '(BODY[HEADER.FIELDS (Received)])')
 	datito= data[0][1].decode()
 	datito=datito.replace("Message-ID:", "")
@@ -830,10 +790,6 @@ for num in data[0].split():
 	datito=datito.strip()
 	datito = datito.split("\nR")
 	i=len(datito)
-	#if (i==3):
-	#	count=count+1
-	#	lim=lim+1
-	#	continue
 	datito[i-1]=datito[i-1].replace("eceived: ", "")
 	datito[i-1]=datito[i-1].replace('\r', '').replace('\n', '')
 	datito[i-1]=datito[i-1].replace("from localhost (", "")
@@ -862,7 +818,6 @@ for num in data[0].split():
 	if (count ==40):
 		print("logrado")
 		break
-
 
 typ, data = imap.search(None,'FROM', 'info@correo.integramedica.cl')  ##############   primer receiver
 count=0
